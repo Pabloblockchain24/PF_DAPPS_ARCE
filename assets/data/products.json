@@ -1,0 +1,117 @@
+[
+    {
+      "id": 1,
+      "brand": "adidas",
+      "model": "Superstar",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 99.99,
+      "category": "MUJER"
+    },
+    {
+      "id": 2,
+      "brand": "nike",
+      "model": "Air Max",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 129.99,
+      "category": "MUJER"
+
+    },
+    {
+      "id": 3,
+      "brand": "puma",
+      "model": "Suede",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 79.99,
+      "category": "MUJER"
+
+    },
+    {
+      "id": 4,
+      "brand": "reebok",
+      "model": "Classic Leather",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 89.99,
+      "category": "HOMBRE"
+
+    },
+    {
+      "id": 5,
+      "brand": "under armour",
+      "model": "HOVR Phantom",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 119.99,
+      "category": "HOMBRE"
+
+    },
+    {
+      "id": 6,
+      "brand": "new balance",
+      "model": "574",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 79.99,
+      "category": "HOMBRE"
+
+    },
+    {
+      "id": 7,
+      "brand": "asics",
+      "model": "Gel-Kayano",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 149.99,
+      "category": "ACCESORIOS"
+    },
+    {
+      "id": 8,
+      "brand": "saucony",
+      "model": "Ride ISO",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 109.99,
+      "category": "ACCESORIOS"
+
+    },
+    {
+      "id": 9,
+      "brand": "brooks",
+      "model": "Ghost",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 129.99,
+      "category": "ACCESORIOS"
+
+    },
+    {
+      "id": 10,
+      "brand": "mizuno",
+      "model": "Wave Rider",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 119.99,
+      "category": "ACCESORIOS"
+
+    },
+    {
+      "id": 11,
+      "brand": "salomon",
+      "model": "Speedcross",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 139.99,
+      "category": "HOMBRE"
+
+    },
+    {
+      "id": 12,
+      "brand": "hoka one one",
+      "model": "Clifton",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 129.99,
+      "category": "HOMBRE"
+
+    },
+    {
+      "id": 13,
+      "brand": "altra",
+      "model": "Lone Peak",
+      "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+      "price": 119.99,
+      "category": "MUJER"
+
+    }
+  ]
