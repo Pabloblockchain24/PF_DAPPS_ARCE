@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 70,
-    },
+        },
     imgLogo: {
         width: 100,
         height: 50,

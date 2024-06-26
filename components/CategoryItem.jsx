@@ -1,26 +1,44 @@
-import { Pressable, StyleSheet, Text } from 'react-native'
+import React from 'react'
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
 import { theme } from '../config/theme'
 
-export const CategoryItem = ({ name, onPress }) => (
-  <Pressable style={styles.category} onPress={onPress}>
-    <Text style={styles.name}>{name}</Text>
-  </Pressable>
-)
+export const CategoryItem = ({ name, img, onPress }) => {
+  return (
+    <Pressable style={styles.category} onPress={onPress}>
+      <ImageBackground
+        source={{ uri: img }}
+        resizeMode='cover'
+        style={styles.imageBackground}
+      >
+        <View style={styles.overlay} />
+        <Text style={styles.name}>{name}</Text>
+      </ImageBackground>
+    </Pressable>
+  )
+}
 
 const styles = StyleSheet.create({
   category: {
     alignItems: 'center',
-    backgroundColor: theme.colors.black,
-    borderRadius: 32,
-    height: 64,
     justifyContent: 'center',
-    width: 64,
+    width: 110,
+    height: 150,
+  },
+  imageBackground: {
+    overflow: 'hidden',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.05)'
   },
   name: {
-    color: theme.colors.white,
-    fontSize: 12,
+    color: theme.colors.black,
+    fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    textTransform: 'capitalize',
   },
 })

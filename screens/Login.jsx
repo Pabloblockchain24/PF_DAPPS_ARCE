@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserAuth } from "../features/authSlice";
 import { useLoginMutation } from "../services/authServices";
 import { theme } from '../config/theme'
+import { ROUTE } from '../navigation/routes'
 
 
 export const Login = () => {
@@ -37,12 +38,12 @@ export const Login = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigation.navigate('Main');
+      navigation.navigate(ROUTE.MAIN);
     }
   }, [isSuccess]);
 
-  const handleRegisterPress = () => {
-    navigation.navigate('Register');
+  const handleSignUpPress = () => {
+    navigation.navigate(ROUTE.SIGN_UP);
   };
 
   return (
@@ -70,7 +71,7 @@ export const Login = () => {
             <Text style={styles.botonText}>{isLoading ? 'INGRESANDO ...' : 'INGRESAR'}</Text>
           </Pressable>
 
-          <Pressable style={styles.registerButton} onPress={handleRegisterPress}>
+          <Pressable style={styles.registerButton} onPress={handleSignUpPress}>
             <Text style={styles.registerButtonText}>¿No estás registrado? Regístrate aquí</Text>
           </Pressable>
         </View>

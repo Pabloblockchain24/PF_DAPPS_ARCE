@@ -1,14 +1,14 @@
-import { Image, StyleSheet, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import { Provider } from "react-redux"
 import { store } from "../../store/index"
-import { Login } from "../../screens/Login"
 import {MainNavigator} from "../../navigation/MainNavigator"
-
+import {theme} from "../../config/theme"
 export default function HomeScreen() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
+        <StatusBar backgroundColor = {theme.colors.gray[700]} style="light" />
         <MainNavigator />
       </SafeAreaProvider>
     </Provider>

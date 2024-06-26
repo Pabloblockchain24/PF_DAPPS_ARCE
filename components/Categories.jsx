@@ -7,40 +7,43 @@ import {
   } from 'react-native'
   import { CategoryItem } from './CategoryItem'
   import { useNavigation } from '@react-navigation/native'
-  import { ROUTE } from '../navigation/routes'
   import { useDispatch, useSelector } from 'react-redux'
   import { setCategorySelected } from '../features/shopSlice'
-  import { useGetCategoriesQuery } from '../services/shopService'
+  // import { useGetCategoriesQuery } from '../services/shopService'
   import { theme } from '../config/theme'
-  
+  import { ROUTE } from '../navigation/routes'
+  import categories from "../assets/data/categories.json"
+
   export const Categories = () => {
+
     const { navigate } = useNavigation()
-    const { data, isLoading, error } = useGetCategoriesQuery()
+    // const { data, isLoading, error } = useGetCategoriesQuery()
     const dispatch = useDispatch()
   
-    const handlePress = brand => {
-      dispatch(setCategorySelected(brand))
-      navigate(ROUTE.ITEM_LIST_CATEGORIES, { brand })
+    const handlePress = category => {
+      // dispatch(setCategorySelected(category))
+      navigate(ROUTE.ITEM_LIST_CATEGORY, { category })
     }
   
     return (
       <View style={styles.categories}>
-        <Text style={styles.text}>CATEGORIES</Text>
-        {isLoading ? (
+        {/* <Text style={styles.text}>CATEGORIES</Text> */}
+        {/* {isLoading ? (
           <View style={styles.categoriesLoading}>
             <ActivityIndicator size='small' color={theme.colors.primary[600]} />
             <Text>Cargando categorias...</Text>
           </View>
-        ) : (
+        ) : ( */
           <FlatList
             contentContainerStyle={styles.list}
-            data={data}
+            data={categories}
             horizontal
             renderItem={({ item }) => (
-              <CategoryItem name={item} onPress={() => handlePress(item)} />
+              <CategoryItem name={item.category} img={item.img} onPress={() => handlePress(item.category)} />
             )}
           />
-        )}
+        /* ) */
+          }
       </View>
     )
   }
@@ -52,15 +55,14 @@ import {
       alignItems: 'center',
     },
     categories: {
-      gap: 16,
-      flex: 1,
-      alignItems: 'center',
+      flex: 0.55,
+      paddingTop: 32,
     },
     list: {
-      gap: 12,
+      width: '100%',
+      justifyContent: 'space-between',
     },
     text: {
       fontSize: 16,
-      paddingVertical: 32
     },
   })

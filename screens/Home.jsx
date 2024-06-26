@@ -5,7 +5,7 @@ import { Banner } from "../components/Banner"
 import { Categories } from "../components/Categories"
 import { NewArrivals } from "../components/NewArrivals"
 import { HeaderMain }  from "../components/HeaderMain"
-export const Main = () => {
+export const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View >
@@ -13,6 +13,7 @@ export const Main = () => {
                 <Banner />
                 <Categories />
                 <NewArrivals />
+                
             </View>
         </SafeAreaView>
 
