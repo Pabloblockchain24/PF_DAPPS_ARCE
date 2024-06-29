@@ -7,4 +7,7 @@ export const ROUTE = {
     CART: 'Cart',
     CART_STACK: 'CartStack',
     ORDERS: 'Orders',
+    ORDERS_STACK: 'OrdersStack',
+    MY_PROFILE: 'MyProfile',
+    IMAGE_SELECTOR: 'ImageSelector'
   }

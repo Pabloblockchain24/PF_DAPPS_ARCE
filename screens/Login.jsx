@@ -5,46 +5,52 @@ import {
   View,
   StyleSheet,
   Text,
+  Alert,
   TextInput,
   useWindowDimensions
 } from "react-native";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserAuth } from "../features/authSlice";
+import { setUser  } from "../features/authSlice";
 import { useLoginMutation } from "../services/authServices";
 import { theme } from '../config/theme'
 import { ROUTE } from '../navigation/routes'
 
 
 export const Login = () => {
-  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [login, { isLoading, isSuccess, isError, data, error }] = useLoginMutation();
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const dispatch = useDispatch();
 
-  const handleInputChange = (name, value) => {
-    setCredentials({ ...credentials, [name]: value });
-  };
+  const [triggerLogin, result] = useLoginMutation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
     try {
-      const user = await login(credentials).unwrap();
-      dispatch(setUserAuth(user));
+      setIsLoading(true)
+      await triggerLogin({email,password})
     } catch (err) {
-      console.error('Failed to login: ', err);
+      console.error('Error en el ingreso ', err);
+      Alert.alert('Error', 'correo o contraseña incorrecta')
+    } finally {
+      setIsLoading(false)
     }
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      navigation.navigate(ROUTE.MAIN);
-    }
-  }, [isSuccess]);
 
   const handleSignUpPress = () => {
     navigation.navigate(ROUTE.SIGN_UP);
   };
+
+  useEffect(() => {
+    if (result.data){
+      const { email, localId, idToken:token} = result.data
+      dispatch(setUser({email, localId, token}))
+      // insertSession({email, localId, token})
+    }
+  }, [result.data]) 
+
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -56,16 +62,16 @@ export const Login = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputCustom}
-            placeholder="usuario@empresa.cl"
-            value={credentials.email}
-            onChangeText={(text) => handleInputChange('email', text)}
+            placeholder="usuario@mail.cl"
+            value={email}
+            onChangeText={setEmail}
           />
           <TextInput
             style={styles.inputCustom}
             placeholder="contraseña"
             secureTextEntry
-            value={credentials.password}
-            onChangeText={(text) => handleInputChange('password', text)}
+            value={password}
+            onChangeText={setPassword}
           />
           <Pressable style={styles.boton} onPress={handleLogin} disabled={isLoading}>
             <Text style={styles.botonText}>{isLoading ? 'INGRESANDO ...' : 'INGRESAR'}</Text>

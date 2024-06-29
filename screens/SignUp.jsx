@@ -11,27 +11,48 @@ import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSignUpMutation } from "../services/authServices";
 import { theme } from "../config/theme";
-import {signUpSchema} from "../validations/signUpShcema";
-import {ROUTE} from "../navigation/routes";
+import { signUpSchema } from "../validations/signUpShcema";
+import { ROUTE } from "../navigation/routes";
 export const SignUp = () => {
   const navigation = useNavigation();
-
   const [triggerSignUp, { isLoading, isSuccess, isError, error }] = useSignUpMutation();
-  const [credentials, setCredentials] = useState({ name: '',  email: '', password: '', });
+  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
-  const handleInputChange = (name, value) => {
-    setCredentials({ ...credentials, [name]: value });
-  };
+  const [errorEmail, setErrorEmail] = useState('')
+  const [errorPassword, setErrorPassword] = useState('')
+  const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
+
 
   const handleSignUp = async () => {
     try {
-      const validation = signUpSchema.validateSync({
-        email: credentials.email,
-        password:credentials.password,
+      signUpSchema.validateSync({
+        email,
+        password,
+        confirmPassword
       })
-      await triggerSignUp(credentials).unwrap();
-    } catch (err) {
-      console.log(err.message)
+
+      const payload = await triggerSignUp({ email, password })
+    } catch (error) {
+      if (error.name === 'ValidationError') {
+        switch (error.path) {
+          case 'email':
+            setErrorEmail(error.message)
+            break
+          case 'password':
+            setErrorPassword(error.message)
+            break
+          case 'confirmPassword':
+            setErrorConfirmPassword(error.message)
+            break
+          default:
+            break
+        }
+      } else {
+        console.error('Error en la solicitud de registro:', error)
+      }
     }
   };
 
@@ -50,32 +71,34 @@ export const SignUp = () => {
 
           <Text style={styles.title}>REGISTRO </Text>
 
-          <TextInput
-            style={styles.inputCustom}
-            placeholder="Nombre"
-            value={credentials.name}
-            onChangeText={(text) => handleInputChange('name', text)}
-          />
 
           <TextInput
             style={styles.inputCustom}
             placeholder="Correo Electrónico"
-            value={credentials.email}
-            onChangeText={(text) => handleInputChange('email', text)}
+            value={email}
+            onChangeText={setEmail}
           />
 
           <TextInput
             style={styles.inputCustom}
             placeholder="Contraseña"
             secureTextEntry
-            value={credentials.password}
-            onChangeText={(text) => handleInputChange('password', text)}
+            value={password}
+            onChangeText={setPassword}
+          />
+
+          <TextInput
+            style={styles.inputCustom}
+            placeholder="Confirmar Contraseña"
+            secureTextEntry
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
           />
 
           <Pressable style={styles.boton} onPress={handleSignUp} disabled={isLoading}>
             <Text style={styles.botonText}>{isLoading ? 'REGISTRANDO ...' : 'REGISTRARSE'}</Text>
           </Pressable>
-          {isError && <Text style={styles.errorText}>Fallo al registrarse, intenta de nuevo.</Text>}
+          {isError && <Text style={styles.errorText}>Fallo al registrarse, intenta de nuevo </Text>}
         </View>
       </View>
     </SafeAreaView>
@@ -88,7 +111,7 @@ const createStyles = deviceHeight =>
       flex: 1,
       backgroundColor: 'white'
     },
-    title:{
+    title: {
       fontSize: 24,
       fontWeight: 'bold',
       paddingVertical: 32
@@ -108,7 +131,7 @@ const createStyles = deviceHeight =>
       margin: 12,
       borderWidth: 1,
       paddingHorizontal: 16,
-      borderColor: theme.colors.gray[700] ,
+      borderColor: theme.colors.gray[700],
       alignItems: "center",
     },
     boton: {

@@ -6,6 +6,7 @@ import { ItemListCategory } from "../screens/ItemListCategory"
 import { ItemDetail } from "../screens/ItemDetail"
 import { AuthStack } from './AuthStack'
 import { CartStack } from './CartStack'
+import { OrdersStack } from "./OrderStack";
 
 export const TiendaStack = () => {
 return(
@@ -19,8 +20,9 @@ return(
             <Stack.Screen name={ROUTE.ITEM_LIST_CATEGORY} component={ItemListCategory}/>
             <Stack.Screen name={ROUTE.ITEM_DETAIL} component={ItemDetail}/>
             <Stack.Screen name={ROUTE.CART} component={CartStack}/>
-            <Stack.Screen name={ROUTE.LOGIN} component={AuthStack}/>
+            <Stack.Screen name={ROUTE.ORDERS} component={OrdersStack}/>
 
+            <Stack.Screen name={ROUTE.LOGIN} component={AuthStack}/>
 </Stack.Navigator>
 
 )

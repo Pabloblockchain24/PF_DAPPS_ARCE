@@ -1,26 +1,30 @@
 import { View, Text, StyleSheet, FlatList, Pressable, SafeAreaView } from 'react-native'
 import { CartItem } from '../components/CartItem'
-import cart from '../assets/data/cart'
 import { formatPrice } from '../utils/price'
-import { useState } from 'react'
 import { theme } from '@/config/theme'
-
-
+import { useSelector, useDispatch } from 'react-redux'
+import { removeItem } from '../features/cartSlice'
+import { useNavigation } from '@react-navigation/native'
+import { ROUTE } from '@/navigation/routes'
+import { usePostOrderMutation } from '@/services/shopService'
 export const Cart = () => {
+    const dispatch = useDispatch()
+    const {navigate} = useNavigation()
 
-    const [total, setTotal] = useState(109.98)
-    const [cartIsEmpty, setCartIsEmpty] = useState(false)
+    const user = useSelector(state => state.auth.value.user)
+    const cart = useSelector(state => state.cart.value.items)
+    const total = useSelector(state => state.cart.value.total)
+    const [triggerPost, result] = usePostOrderMutation()
+
 
     const handleDelete = item => {
-        const newCart = cart.filter(cartItem => cartItem.id !== item.id)
-        setCartIsEmpty(newCart.length === 0)
-        setTotal(total - item.price)
-    }
+        dispatch(removeItem(item))
+      }
 
     const confirmOrder = () => {
-        setTotal(0)
+        triggerPost({cart, total, user})
+        navigate("ORDENES", {screen: ROUTE.ORDERS})
     }
-
 
     return (
         <SafeAreaView style={styles.container}>
@@ -37,8 +41,8 @@ export const Cart = () => {
                     <Text style={styles.totalText}>TOTAL</Text>
                     <Text style={styles.totalText}>{formatPrice(total)}</Text>
                 </View>
-                {cartIsEmpty ? null : (
-                    <Pressable style={styles.button} disabled={cartIsEmpty} onPress={confirmOrder}>
+                {cart.length > 0 && (
+                    <Pressable style={styles.button} onPress={confirmOrder}>
                         <Text style={styles.buttonText}>CONFIRMAR PEDIDO </Text>
                     </Pressable>
                 )}
@@ -63,6 +67,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 8,
+        marginBottom: 32
     },
     button:{
         backgroundColor: theme.colors.gray[400],

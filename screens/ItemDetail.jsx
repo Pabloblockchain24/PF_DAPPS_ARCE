@@ -14,10 +14,13 @@ import {
   import { ROUTE } from '../navigation/routes'
   import { useDispatch } from 'react-redux'
   import { formatPrice } from '../utils/price'
-
+ import { addItem } from '../features/cartSlice'
   
   export const ItemDetail = () => {
+
+    // esto hay que arreglarlo
     const { params } = useRoute()
+
     const { navigate, goBack, setOptions } = useNavigation()
 
     const dispatch = useDispatch()
@@ -32,9 +35,9 @@ import {
     }
   
     const handleAddToCart = () => {
-      // dispatch(addItem({ ...item, size: selectedSize }))
-      // goBack()
-      navigate(ROUTE.CART_STACK, {screen: ROUTE.CART})
+      dispatch(addItem({ ...item, size: selectedSize }))
+      goBack()
+      navigate("CARRITO", {screen: ROUTE.CART})
     }
   
     useEffect(() => {

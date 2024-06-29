@@ -1,35 +1,31 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { DATABASE_URL } from "../firebase/database";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { apiKey, authUrl, baseUrl } from '../firebase/database'
 
 export const authApi = createApi({
-    reducerPath: "authApi",
-    baseQuery: fetchBaseQuery({ baseUrl: DATABASE_URL }),
-    endpoints: (builder) => ({
-
-        login: builder.mutation({
-            query: (credentials) => ({
-                url: "/login",
-                method: "POST",
-                body: credentials,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-        }),
-        signUp: builder.mutation({
-            query: (credentials) => ({
-                url: "/signUp",
-                method: "POST",
-                body: credentials,
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-        })
-    })
+  reducerPath: 'authApi',
+  baseQuery: fetchBaseQuery({ baseUrl: authUrl }),
+  endpoints: builder => ({
+    signUp: builder.mutation({
+      query: ({ ...auth }) => ({
+        url: `v1/accounts:signUp?key=${apiKey}`,
+        method: 'POST',
+        body: auth,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
+    login: builder.mutation({
+      query: ({ ...auth }) => ({
+        url: `v1/accounts:signInWithPassword?key=${apiKey}`,
+        method: 'POST',
+        body: auth,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
+  }),
 })
 
-export const {
-    useLoginMutation,
-    useSignUpMutation
-} = authApi;
+export const { useSignUpMutation, useLoginMutation } = authApi

@@ -1,14 +1,10 @@
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export const HeaderMain = () => {
-    const navigation = useNavigation();
-    const user = useSelector((state) => state.auth.user);
-
-    const handleLoginPress = () => {
-        navigation.navigate('Login');
-    };
+    const {email, photo} = useSelector(state => state.auth.value.user)
 
     return (
         <View style={styles.containerHeader}>
@@ -17,13 +13,19 @@ export const HeaderMain = () => {
                 source={require("../assets/images/raveLogo.jpg")}
             />
 
-            {user ? (
-                <Text>{`Hola, ${user.name}`}</Text>
-            ) : (
-                <Pressable onPress={handleLoginPress}>
-                    <Text>Iniciar Sesión</Text>
-                </Pressable>
-            )}
+            <View style={styles.infoUser}>
+            <Image
+                source={
+                    photo
+                        ? { uri: photo }
+                        : require('../assets/images/profile_placeholder.jpg')
+                }
+                resizeMode='cover'
+                style={styles.imageCamera}
+            />
+            <Text style={styles.textUser}> {email} </Text>
+            </View>
+
         </View>
     )
 }
@@ -33,11 +35,26 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: 70,
-        },
+        height: 80,
+        marginBottom: 16,
+    },
     imgLogo: {
         width: 100,
         height: 50,
         resizeMode: 'contain',
+    },
+    imageCamera:{
+        width:30,
+        height:30,
+        borderRadius:20
+    },
+    textUser:{
+        fontSize:12
+    },
+    infoUser:{
+        flexDirection: 'column',  
+        alignItems: 'flex-end',
+        gap:4
     }
+
 })

@@ -1,15 +1,13 @@
 import { baseUrl } from '../firebase/database'
-import { productos } from "../assets/data/products.json"
-
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { objectToArray } from "../scripts/array"
 
 export const shopApi = createApi({
   reducerPath: 'shopApi',
-  baseQuery: fetchBaseQuery({baseUrl} ),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: builder => ({
     getProductsByCategory: builder.query({
-      query: brand => `products.json?orderBy="brand"&equalTo="${brand}"`,
+      query: category => `products.json?orderBy="category"&equalTo="${category}"`,
       transformResponse: response => objectToArray(response),
     }),
     getCategories: builder.query({
