@@ -23,7 +23,7 @@ export const Cart = () => {
 
     const confirmOrder = () => {
         triggerPost({cart, total, user})
-        navigate("ORDENES", {screen: ROUTE.ORDERS})
+        navigate(ROUTE.HOME, { screen: ROUTE.HOME});
     }
 
     return (

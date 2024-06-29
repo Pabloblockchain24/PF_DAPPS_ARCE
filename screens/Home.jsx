@@ -1,4 +1,3 @@
-
 import { View, Text, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Banner } from "../components/Banner"
@@ -8,15 +7,13 @@ import { HeaderMain }  from "../components/HeaderMain"
 export const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <View >
+            <View style={styles.containerComponents} >
                 <HeaderMain />
                 <Banner />
                 <Categories />
                 <NewArrivals />
-                
             </View>
         </SafeAreaView>
-
     );
 }
 
@@ -27,5 +24,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'start',
         padding: 16,
+    },
+    containerComponents:{
+        gap: 20
     }
+
 })

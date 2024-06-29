@@ -8,7 +8,6 @@ export const Input = ({ error, ...props }) => (
 )
 
 const styles = StyleSheet.create({
-
   input: {
       width: 270,
       height: 40,

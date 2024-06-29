@@ -1,14 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  Pressable,
-  Image,
-  View,
-  StyleSheet,
-  Text,
-  Alert,
-  TextInput,
-  useWindowDimensions
-} from "react-native";
+import {Pressable, Image,View,StyleSheet,Text,Alert,} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ROUTE } from '../navigation/routes'
 import { useLoginMutation } from "../services/authServices";
@@ -52,7 +43,6 @@ export const Login = () => {
     }
   }, [result.data])
 
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.Login}>
@@ -61,21 +51,8 @@ export const Login = () => {
           source={require("../assets/images/raveLogo.jpg")}
         />
         <View style={styles.inputContainer}>
-
-
-          <Input
-            placeholder="pablo@gmail.com"
-            value={email}
-            onChangeText={setEmail}
-          />
-
-          <Input
-            placeholder="contraseña"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
-
+          <Input placeholder="pablo@gmail.com" value={email} onChangeText={setEmail}/>
+          <Input placeholder="contraseña" secureTextEntry value={password} onChangeText={setPassword}/>
           <Button onPress={handleLogin} disabled={isLoading}> {isLoading ? 'INGRESANDO ...' : 'INGRESAR'} </Button>
 
           <Pressable style={styles.registerButton} onPress={handleSignUpPress}>
@@ -106,16 +83,6 @@ const styles = StyleSheet.create({
     height: 80,
     resizeMode: 'contain',
   },
-  inputCustom: {
-    width: "100%",
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    paddingHorizontal: 16,
-    borderColor: "black",
-    alignItems: "center",
-  },
-
   inputContainer: {
     width: "80%",
     padding: 16,

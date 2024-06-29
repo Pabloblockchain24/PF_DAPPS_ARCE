@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text } from 'react-native'
 import { theme } from '../config/theme'
 
 export const Button = ({ children, onPress, style }) => (
-    <Pressable onPress={onPress} style={[styles.button, style]}>
+  <Pressable onPress={onPress} style={[styles.button, style]}>
     <Text style={styles.buttonText}>{children}</Text>
   </Pressable>
 )
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'center',
     width: 200,
-    marginTop: 32,
+    marginTop: 16,
   },
   buttonText: {
     color: theme.colors.gray[50],

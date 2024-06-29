@@ -1,12 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  Pressable,
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  useWindowDimensions
-} from "react-native";
+import {View,StyleSheet,Text,useWindowDimensions} from "react-native";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSignUpMutation } from "../services/authServices";
@@ -26,7 +19,6 @@ export const SignUp = () => {
   const [errorEmail, setErrorEmail] = useState('')
   const [errorPassword, setErrorPassword] = useState('')
   const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
-
 
   const handleSignUp = async () => {
     try {
@@ -93,9 +85,7 @@ export const SignUp = () => {
             onChangeText={setConfirmPassword}
           />
 
-
           <Button onPress={handleSignUp} disabled={isLoading}> {isLoading ? 'REGISTRANDO ...' : 'REGISTRARSE'}</Button>
-
           {isError && <Text style={styles.errorText}>Fallo al registrarse, intenta de nuevo </Text>}
         </View>
       </View>

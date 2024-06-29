@@ -1,30 +1,32 @@
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { useDispatch, useSelector } from 'react-redux'
-import products from "../assets/data/products.json"
+import { useDispatch } from 'react-redux'
 import { ProductHomeItem } from './ProductHomeItem'
 import {ROUTE} from "../navigation/routes"
+import { setProductIdSelected } from '../features/shopSlice'
+import { useGetProductsQuery } from '../services/shopService'
+import { theme } from '../config/theme'
 export const NewArrivals = () => {
   const { navigate } = useNavigation()
-  // const { data, isLoading, error } = useGetProductsQuery()
+  const { data, isLoading, error } = useGetProductsQuery()
   const dispatch = useDispatch()
 
   const handlePress = idProduct => {
-    // dispatch(setProductSelected(idProduct))
+    dispatch(setProductIdSelected(idProduct))
     navigate(ROUTE.ITEM_DETAIL, { idProduct })
   }
   return (
     <View style={styles.categories}>
       <Text style={styles.text}>NEW ARRIVALS</Text>
-      {/* {isLoading ? (
+       {isLoading ? (
         <View style={styles.categoriesLoading}>
           <ActivityIndicator size='small' color={theme.colors.primary[600]} />
           <Text>Cargando categorias...</Text>
         </View>
-      ) : ( */
+      ) : ( 
         <FlatList
           contentContainerStyle={styles.list}
-          data={products}
+          data={data}
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id.toString()}
@@ -37,7 +39,7 @@ export const NewArrivals = () => {
               onPress={() => handlePress(item.id)} />
           )}
         />
-        /* ) */
+        )
       }
     </View>
   )
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   categories: {
     flex: 1,
     alignItems: 'center',
-    gap: 16,
+    gap: 32,
     paddingHorizontal: 10,
   },
   text: {

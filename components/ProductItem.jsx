@@ -1,10 +1,4 @@
-import {
-    Image,
-    Pressable,
-    StyleSheet,
-    Text,
-    View
-  } from 'react-native'
+import {Image,Pressable,StyleSheet,Text,View} from 'react-native'
   import { theme } from '../config/theme'
   import { formatPrice } from '../utils/price'
   
