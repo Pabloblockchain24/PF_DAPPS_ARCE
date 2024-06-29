@@ -1,50 +1,88 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# PF_DAPPS_ARCE
 
-## Get started
+Este es un proyecto de Expo creado con `create-expo-app`.
 
-1. Install dependencies
+## Introducción
 
+Este proyecto tiene como objetivo desarrollar una aplicación del tipo e-commerce utilizando Expo y React Native. A continuación, se detalla cómo comenzar a trabajar con este proyecto.
+
+## Contenidos del Proyecto
+
+- **app**: Contiene los componentes principales de la aplicación.
+- **assets**: Contiene los recursos gráficos y de estilo.
+- **components**: Contiene los componentes reutilizables de la interfaz de usuario.
+- **config**: Configuraciones generales de la aplicación.
+- **constants**: Constantes utilizadas en la aplicación.
+- **db**: Archivos relacionados con la base de datos.
+- **features**: Funcionalidades principales de la aplicación.
+- **firebase**: Configuraciones y servicios de Firebase.
+- **navigation**: Configuración de la navegación en la aplicación.
+- **screens**: Pantallas principales de la aplicación.
+- **scripts**: Scripts utilizados para diversas tareas del proyecto.
+- **services**: Servicios que maneja la lógica de negocio.
+- **store**: Configuración del store de Redux.
+- **utils**: Funciones utilitarias.
+- **validations**: Validaciones utilizadas en formularios y otros componentes.
+
+## Comenzando
+
+Para empezar a trabajar con este proyecto, sigue estos pasos:
+
+### Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/Pabloblockchain24/PF_DAPPS_ARCE.git
+   ```
+
+2. Instala las dependencias:
    ```bash
    npm install
    ```
 
-2. Start the app
+### Ejecución
 
+1. Inicia la aplicación:
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+En la salida, encontrarás opciones para abrir la aplicación en un **build de desarrollo**, un **emulador de Android**, un **simulador de iOS** o **Expo Go**.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Reiniciar el Proyecto
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+Si necesitas un proyecto nuevo, puedes ejecutar el siguiente comando:
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Este comando moverá el código de inicio al directorio `app-example` y creará un nuevo directorio `app` donde puedes comenzar a desarrollar.
 
-## Learn more
+## Aprender más
 
-To learn more about developing your project with Expo, look at the following resources:
+Para aprender más sobre el desarrollo con Expo, consulta los siguientes recursos:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Documentación de Expo](https://docs.expo.dev/)
+- [Tutorial de Expo](https://docs.expo.dev/tutorial/introduction/)
 
-## Join the community
+## Comunidad
 
-Join our community of developers creating universal apps.
+Únete a nuestra comunidad de desarrolladores creando aplicaciones universales:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo en GitHub](https://github.com/expo)
+- [Comunidad en Discord](https://chat.expo.dev)
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del proyecto.
+2. Crea una nueva rama (`git checkout -b feature/AmazingFeature`).
+3. Realiza tus cambios y haz un commit (`git commit -m 'Add some AmazingFeature'`).
+4. Sube tus cambios (`git push origin feature/AmazingFeature`).
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
