@@ -52,10 +52,11 @@ const styles = StyleSheet.create({
   categories: {
     flex: 1,
     alignItems: 'center',
-    gap: 32,
+    gap: 16,
     paddingHorizontal: 10,
   },
   text: {
     fontSize: 16,
+    fontWeight: '700',
   },
 })

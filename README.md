@@ -55,17 +55,17 @@ En la salida, encontrarás opciones para abrir la aplicación en un **build de d
 Si necesitas un proyecto nuevo, puedes ejecutar el siguiente comando:
 ```bash
 npm run reset-project
+```
 
+Este comando moverá el código de inicio al directorio `app-example` y creará un nuevo directorio `app` donde puedes comenzar a desarrollar.
 
 
 ## Captura de Pantalla
 
-Aquí hay una captura de pantalla de la página principal de la aplicación:
+Aquí hay una captura de pantalla de la página login y principal de la aplicación:
 
-![Home Screenshot](assets/images/screenshotHome.jpg)
-```
-
-Este comando moverá el código de inicio al directorio `app-example` y creará un nuevo directorio `app` donde puedes comenzar a desarrollar.
+![Home Screenshot](assets/images/HOME_SCREENSHOOT.jpg)
+![Login Screenshot](assets/images/LOGIN_SCREENSHOOT.jpg)
 
 ## Aprender más
 

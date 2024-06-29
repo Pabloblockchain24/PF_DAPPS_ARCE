@@ -25,7 +25,6 @@ export const Categories = () => {
 
   return (
     <View style={styles.categories}>
-      <Text style={styles.text}>CATEGORIES</Text>
       {isLoading ? (
         <View style={styles.categoriesLoading}>
           <ActivityIndicator size='large' color={theme.colors.gray[500]} />
@@ -53,14 +52,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   categories: {
-    flex: 0.55,
+    flex: 0.65,
     paddingTop: 32,
   },
   list: {
     width: '100%',
     justifyContent: 'space-between',
   },
-  text: {
+  textCategories: {
     fontSize: 16,
+    alignItems: 'center',
   },
 })
