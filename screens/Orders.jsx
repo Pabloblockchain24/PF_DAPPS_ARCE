@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {theme} from "../config/theme"
 export const Orders = () => {
-//   const cart = useSelector(state => state.cart.value)
 
 //   useEffect(() => {
 //     // 1. HACER GET DE LA BD DE REALTIME DATABASE DE FIREBASE

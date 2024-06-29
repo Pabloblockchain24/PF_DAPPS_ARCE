@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux'
 import { ROUTE } from '../navigation/routes'
 import { theme } from '../config/theme'
+import { Button } from '../components/Button'
 import { useEffect } from 'react'
 import {logout} from '../features/authSlice'
 import { deleteSession } from '../db/index'
@@ -31,13 +32,9 @@ export const MyProfile = () => {
         resizeMode='cover'
         style={styles.image}
       />
-      <Pressable style={styles.buttonAdd} onPress={goToImageSelector}>
-        <Text style={styles.buttonText}> AGREGAR FOTO PERFIL </Text>
-      </Pressable>
 
-      <Pressable style={styles.buttonLogout} onPress={handleLogout}>
-        <Text style={styles.buttonText}> LOGOUT </Text>
-      </Pressable>
+      <Button onPress={goToImageSelector}> AGREGAR FOTO PERFIL</Button>
+      <Button onPress={handleLogout} style={{ backgroundColor: theme.colors.primary[400] }}>LOGOUT</Button>
 
     </View>
   )
@@ -48,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.colors.gray[100],
     flex: 1,
-    gap: 64,
+    gap: 32,
     justifyContent: 'center',
   },
   image: {
@@ -56,24 +53,9 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 200,
   },
-  buttonAdd: {
-    backgroundColor: theme.colors.gray[400],
-    padding: 16,
-    alignItems: 'center',
-    width: 200
-  },
-  buttonText: {
-    color: theme.colors.gray[50],
-    fontWeight: 'bold'
-  },
+
   textUser: {
     fontSize: 16,
     fontWeight: 'bold'
   },
-  buttonLogout: {
-    backgroundColor: theme.colors.primary[400],
-    padding: 16,
-    alignItems: 'center',
-    width: 200
-  }
 })

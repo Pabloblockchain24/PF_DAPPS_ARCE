@@ -12,11 +12,13 @@ import { useNavigation } from "@react-navigation/native";
 import { useSignUpMutation } from "../services/authServices";
 import { theme } from "../config/theme";
 import { signUpSchema } from "../validations/signUpShcema";
+import { Input } from "../components/Input";
+import { Button } from "@/components/Button";
 import { ROUTE } from "../navigation/routes";
 export const SignUp = () => {
   const navigation = useNavigation();
   const [triggerSignUp, { isLoading, isSuccess, isError, error }] = useSignUpMutation();
-  
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -71,33 +73,29 @@ export const SignUp = () => {
 
           <Text style={styles.title}>REGISTRO </Text>
 
-
-          <TextInput
-            style={styles.inputCustom}
+          <Input
             placeholder="Correo Electrónico"
             value={email}
             onChangeText={setEmail}
           />
 
-          <TextInput
-            style={styles.inputCustom}
+          <Input
             placeholder="Contraseña"
             secureTextEntry
             value={password}
             onChangeText={setPassword}
           />
 
-          <TextInput
-            style={styles.inputCustom}
-            placeholder="Confirmar Contraseña"
+          <Input
+            placeholder="Contraseña"
             secureTextEntry
             value={confirmPassword}
             onChangeText={setConfirmPassword}
           />
 
-          <Pressable style={styles.boton} onPress={handleSignUp} disabled={isLoading}>
-            <Text style={styles.botonText}>{isLoading ? 'REGISTRANDO ...' : 'REGISTRARSE'}</Text>
-          </Pressable>
+
+          <Button onPress={handleSignUp} disabled={isLoading}> {isLoading ? 'REGISTRANDO ...' : 'REGISTRARSE'}</Button>
+
           {isError && <Text style={styles.errorText}>Fallo al registrarse, intenta de nuevo </Text>}
         </View>
       </View>
