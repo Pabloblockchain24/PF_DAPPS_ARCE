@@ -9,13 +9,14 @@ import {
   TextInput,
   useWindowDimensions
 } from "react-native";
-import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser  } from "../features/authSlice";
-import { useLoginMutation } from "../services/authServices";
-import { theme } from '../config/theme'
 import { ROUTE } from '../navigation/routes'
+import { useLoginMutation } from "../services/authServices";  
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setUser  } from "../features/authSlice";
+import { theme } from '../config/theme'
+import { insertSession } from "../db/index";
 
 
 export const Login = () => {
@@ -47,7 +48,7 @@ export const Login = () => {
     if (result.data){
       const { email, localId, idToken:token} = result.data
       dispatch(setUser({email, localId, token}))
-      // insertSession({email, localId, token})
+      insertSession({email, localId, token})
     }
   }, [result.data]) 
 
