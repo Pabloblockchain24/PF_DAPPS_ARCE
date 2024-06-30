@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import products from '../assets/data/products.json'
+import { useGetProductsQuery } from '../services/shopService'
 import { theme } from '../config/theme'
 import { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
@@ -18,6 +18,9 @@ import { addItem } from '../features/cartSlice'
 import { Button } from '../components/Button'
 export const ItemDetail = () => {
   const { params } = useRoute()
+  const { data: products, isLoading } = useGetProductsQuery()
+
+
   const { navigate, goBack, setOptions } = useNavigation()
   const dispatch = useDispatch()
   const [selectedSize, setSelectedSize] = useState()
