@@ -16,7 +16,6 @@ export const Cart = () => {
     const total = useSelector(state => state.cart.value.total)
     const [triggerPost, result] = usePostOrderMutation()
 
-
     const handleDelete = item => {
         dispatch(removeItem(item))
       }
